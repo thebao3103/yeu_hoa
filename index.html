@@ -10,7 +10,7 @@
     <style>
         html,
         body {
-            height: 100%;
+            overflow: hidden;
             padding: 0;
             margin: 0;
             background: #000;
@@ -23,8 +23,8 @@
         }
         
         canvas {
-            top: 50%;
-            left: 50%;
+            /* top: 50%;
+            left: 50%; */
             z-index: 1;
             display: block;
             position: absolute;
@@ -33,22 +33,92 @@
         }
         
         @keyframes heart {
-            99% {
-                transform: translate(-50%, -50%) scale(.95, .95)
+            0% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(.8);
+            }
+            60% {
+                transform: scale(1.2);
             }
             100% {
-                transform: translate(-50%, -50%) scale(1, 1)
+                transform: scale(1);
+            }
+        }
+        /* Heart */
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2c3e50
+        }
+        
+        .box {
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .heart {
+            position: relative;
+            margin: auto;
+            height: 170px;
+            width: 200px;
+            animation: animate 1.5s ease infinite;
+        }
+        
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            background: #ea80b0;
+            width: 100px;
+            height: 160px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .heart:before {
+            left: 100px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(.8);
+            }
+            60% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
             }
         }
     </style>
 </HEAD>
 
 <BODY>
+    <div class="box">
+        <div class="heart"></div>
+    </div>
     <canvas id="pinkboard">
-        <div class="heart">
-            <div class="left"></div> // Hình Elip bên trái
-            <div class="right"></div> // Hình Elip bên phải
-          </div>
     </canvas>
     <script>
         /*
