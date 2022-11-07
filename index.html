@@ -2,7 +2,7 @@
 <HTML>
 
 <HEAD>
-    <TITLE>Yêu Hoa</TITLE>
+    <TITLE>I Love You</TITLE>
     <META NAME="Generator" CONTENT="EditPlus">
     <META NAME="Author" CONTENT="">
     <META NAME="Keywords" CONTENT="">
@@ -39,75 +39,9 @@
             30% {
                 transform: scale(.8);
             }
-            60% {
+            /* 60% {
                 transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        /* Heart */
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #2c3e50
-        }
-        
-        .box {
-            width: 300px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .heart {
-            position: relative;
-            margin: auto;
-            height: 170px;
-            width: 200px;
-            animation: animate 1.5s ease infinite;
-        }
-        
-        .heart:before,
-        .heart:after {
-            content: '';
-            position: absolute;
-            background: #ea80b0;
-            width: 100px;
-            height: 160px;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-        }
-        
-        .heart:before {
-            left: 100px;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-            box-shadow: 0 0px 25px #ea80b059, 0 0px 25px #ea80b059;
-        }
-        
-        .heart:after {
-            left: 0;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
-            box-shadow: 0 0px 25px #ea80b059, 0 0px 25px #ea80b059;
-        }
-        
-        @keyframes animate {
-            0% {
-                transform: scale(1);
-            }
-            30% {
-                transform: scale(.8);
-            }
-            60% {
-                transform: scale(1.2);
-            }
+            } */
             100% {
                 transform: scale(1);
             }
@@ -116,10 +50,10 @@
 </HEAD>
 
 <BODY>
-    <div class="box">
-        <div class="heart"></div>
-    </div>
+
     <canvas id="pinkboard">
+        <canvas id="pinkboard">
+        </canvas>
     </canvas>
     <script>
         /*
@@ -127,11 +61,11 @@
          */
         var settings = {
             particles: {
-                length: 500, // maximum amount of particles
+                length: 1500, // maximum amount of particles
                 duration: 2, // particle duration in sec
-                velocity: 100, // particle velocity in pixels/sec
-                effect: -0.75, // play with this for a nice effect
-                size: 30, // particle size in pixels
+                velocity: 135, // particle velocity in pixels/sec
+                effect: -0.35, // play with this for a nice effect
+                size: 14, // particle size in pixels
             },
         };
 
@@ -317,8 +251,8 @@
                 // helper function to create the path
                 function to(t) {
                     var point = pointOnHeart(t);
-                    point.x = settings.particles.size / 2 + point.x * settings.particles.size / 350;
-                    point.y = settings.particles.size / 2 - point.y * settings.particles.size / 350;
+                    point.x = settings.particles.size / 3 + point.x * settings.particles.size / 550;
+                    point.y = settings.particles.size / 3 - point.y * settings.particles.size / 550;
                     return point;
                 }
                 // create the path
